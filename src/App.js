@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddBeer from './components/AddBeer';
 import Beers from './components/Beers';
 import BeerService from './services/BeerService';
 import './App.css';
@@ -16,6 +17,12 @@ class App extends Component {
     BeerService.fetchBeers().then(beers => this.setState({ beers }))
   }
 
+  addBeer = beer => {
+    BeerService.createBeer(beer).then(beer => this.setState({
+      beers: this.state.beers.concat(beer)
+    }))
+  }
+
   render() {
     return (
       <div className="App">
@@ -29,7 +36,7 @@ class App extends Component {
           <Beers beers={this.state.beers}/>
         </div>
         <div className="form">
-          {/* <Beer /> */}
+          <AddBeer addBeer={this.addBeer}/>
         </div>
       </div>
     );
