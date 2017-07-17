@@ -7,10 +7,25 @@
 }
 
 .title {
-  color: rgba(79, 148, 47, 1);
+  color: white;
+  background-color: rgba(79, 148, 47, 1);
   font-family: Impact, Arial;
+  padding: 1px
 }
 
-.main {
+.show-beer {
+  text-align: left;
+  clear: both;
+  padding: 20px;
+}
 
+.beer-name {
+  /*text-align: center;*/
+}
+
+img {
+  float: left;
+  width: 180px;
+  height: auto;
+  padding-right: 15px
 }
