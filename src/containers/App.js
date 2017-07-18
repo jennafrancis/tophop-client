@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Home from '../views/Home';
-import Signup from '../views/Signup';
+import Login from '../views/Login';
 import NotFound from '../views/NotFound';
 
 import AddBeer from '../components/AddBeer';
@@ -42,7 +42,7 @@ class App extends Component {
           <div className="navbar">
             {/*<Navbar />*/}
             <NavLink className="navlink" to="/">Home</NavLink>
-            <NavLink className="navlink" to="/signup">Signup</NavLink>
+            <NavLink className="navlink" to="/login">Admin Login</NavLink>
           </div>
           <div className="title">
             <h1>TopHop</h1>
@@ -50,7 +50,7 @@ class App extends Component {
           </div>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
           </Switch>
 
