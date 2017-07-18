@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link
+  NavLink
 } from 'react-router-dom';
 import AddBeer from './components/AddBeer';
 import Beers from './components/Beers';
@@ -40,7 +40,8 @@ class App extends Component {
         <div className="App">
           <div className="navbar">
             {/*<Navbar />*/}
-            <Link to="/">Home</Link> | <Link to="/signup">Signup</Link>
+            <NavLink className="navlink" to="/">Home</NavLink>
+            <NavLink className="navlink" to="/signup">Signup</NavLink>
           </div>
           <Switch>
             <Route exact path="/" component={Home} />

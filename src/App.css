@@ -1,18 +1,25 @@
 .App {
   text-align: center;
+  background-color: rgba(49, 72, 82, 1)
 }
 
 .navbar {
   font-family: "Trebuchet MS", Helvetica;
   color: white;
-  background-color: rgba(79, 148, 47, 1);
+  background-color: rgba(30, 26, 45, 1);
   text-align: right;
   padding: 4px
 }
 
+.navlink {
+  padding: 5px;
+  color: white;
+  text-decoration: none;
+}
+
 .title {
-  color: rgba(79, 148, 47, 1);
-  font-family: Impact, Arial;
+  color: rgba(188, 115, 98, 1);
+  font-family: 'Bookman Old Style', Arial;
   font-size: x-large;
   padding: 1px
 }
@@ -21,10 +28,11 @@
   text-align: left;
   clear: both;
   padding: 20px;
+  color: white
 }
 
 .beer-name {
-  /*text-align: center;*/
+  /*color: rgba(188, 115, 98, 1)*/
 }
 
 img {
