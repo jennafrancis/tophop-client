@@ -32,6 +32,7 @@ class App extends Component {
         </div>
         <div className="title">
           <h1>TopHop</h1>
+          <p>Something clever about craft beers</p>
         </div>
         <div className="main">
           <Beers beers={this.state.beers}/>

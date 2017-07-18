@@ -6,13 +6,14 @@
   font-family: "Trebuchet MS", Helvetica;
   color: white;
   background-color: rgba(79, 148, 47, 1);
-  text-align: right
+  text-align: right;
+  padding: 4px
 }
 
 .title {
-  color: white;
-  background-color: rgba(79, 148, 47, 1);
+  color: rgba(79, 148, 47, 1);
   font-family: Impact, Arial;
+  font-size: x-large;
   padding: 1px
 }
 
