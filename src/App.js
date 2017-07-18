@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom';
 import AddBeer from './components/AddBeer';
 import Beers from './components/Beers';
 import Navbar from './components/Navbar';
 import BeerService from './services/BeerService';
 import './App.css';
+
+const Signup = () => <div>Signup</div>
+const Home = () => <div>Home</div>
+const NotFound = () => <div>NotFound</div>
 
 class App extends Component {
   constructor() {
@@ -26,21 +36,29 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="navbar">
-          <Navbar />
+      <Router>
+        <div className="App">
+          <div className="navbar">
+            {/*<Navbar />*/}
+            <Link to="/">Home</Link> | <Link to="/signup">Signup</Link>
+          </div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/signup" component={Signup} />
+            <Route component={NotFound} />
+          </Switch>
+          <div className="title">
+            <h1>TopHop</h1>
+            <p>Something clever about craft beers</p>
+          </div>
+          <div className="main">
+            <Beers beers={this.state.beers}/>
+          </div>
+          <div className="form">
+            <AddBeer addBeer={this.addBeer}/>
+          </div>
         </div>
-        <div className="title">
-          <h1>TopHop</h1>
-          <p>Something clever about craft beers</p>
-        </div>
-        <div className="main">
-          <Beers beers={this.state.beers}/>
-        </div>
-        <div className="form">
-          <AddBeer addBeer={this.addBeer}/>
-        </div>
-      </div>
+      </Router>
     );
   }
 }
