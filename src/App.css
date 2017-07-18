@@ -4,6 +4,9 @@
 
 .navbar {
   font-family: "Trebuchet MS", Helvetica;
+  color: white;
+  background-color: rgba(79, 148, 47, 1);
+  text-align: right
 }
 
 .title {

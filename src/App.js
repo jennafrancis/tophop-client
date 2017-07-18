@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddBeer from './components/AddBeer';
 import Beers from './components/Beers';
+import Navbar from './components/Navbar';
 import BeerService from './services/BeerService';
 import './App.css';
 
@@ -27,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="navbar">
-          {/* <Navbar /> */}
+          <Navbar />
         </div>
         <div className="title">
           <h1>TopHop</h1>
