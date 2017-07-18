@@ -55,10 +55,10 @@ class App extends Component {
           </Switch>
 
           <div className="main">
-            <Beers beers={this.state.beers}/>
+            {/*<Beers beers={this.state.beers}/>*/}
           </div>
           <div className="form">
-            <AddBeer addBeer={this.addBeer}/>
+            {/*}<AddBeer addBeer={this.addBeer}/>*/}
           </div>
         </div>
       </Router>
