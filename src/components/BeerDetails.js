@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BeerDetais = ({ beer }) => {
+const BeerDetails = ({ beer }) => {
   return (
     <div className="show-beer" key={beer.id}>
       <h3 className="beer-name">{beer.name}, {beer.brewery}</h3>
@@ -12,7 +12,4 @@ const BeerDetais = ({ beer }) => {
   )
 }
 
-const BeerDetails = beer => {
-  <div><h3>Beer show component!</h3></div>
-}
 export default BeerDetails;

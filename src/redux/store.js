@@ -4,14 +4,12 @@ import { reducer as form } from 'redux-form';
 import auth from './reducers/auth';
 import beerFormData from './reducers/beerFormData';
 import beers from './reducers/beers';
-import currentBeer from './reducers/currentBeer';
 
 const reducers = combineReducers({
-  form,
   auth,
   beerFormData,
   beers,
-  currentBeer
+  form
 })
 
 const middleware = [thunk]

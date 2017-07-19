@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BeerForm from './BeerForm'
 
 class AddBeer extends Component {
   constructor(props) {
@@ -26,6 +25,7 @@ class AddBeer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const beer = this.state
+    // addBeer(beer)
 
     // this.props.addBeer(beer)
     // this.setState({

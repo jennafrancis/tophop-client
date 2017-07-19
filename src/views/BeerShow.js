@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BeerDetails from '../components/BeerDetails';
 
-const BeeShow = (props) =>
-  <div className="main">
-    <BeerDetails beer={props.beer} />
-  </div>
-
 const BeerShow = ({ beer }) =>
   <div className="show-beer" key={beer.id}>
     <h3 className="beer-name">{beer.name}, {beer.brewery}</h3>

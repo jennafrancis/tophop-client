@@ -18,8 +18,8 @@ class App extends Component {
     this.props.fetchBeers()
   }
 
-  addBeer = beer => {
-    this.props.addBeer(this.props.beerFormData)
+  newBeer = (beer) => {
+    this.props.addBeer(beer)
     // BeerService.createBeer(beer).then(beer => this.setState({
     //   beers: this.state.beers.concat(beer)
     // }))
@@ -33,7 +33,7 @@ class App extends Component {
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
             <NavLink className="navlink" to="/beers/new">Add a Beer</NavLink>
-            <NavLink className="navlink" to="/login">Admin</NavLink>
+            <NavLink className="navlink" to="/login">Login</NavLink>
           </div>
           <div className="title">
             <h1>TopHop</h1>
@@ -46,7 +46,7 @@ class App extends Component {
               <h3>Please select a beer from the list.</h3>
             )} />
             <Route exact path="/beers/new" render={(props) => (
-              <AddBeer {...props} addBeer={this.addBeer} />
+              <AddBeer {...props} addBeer={this.newBeer} />
             )} />
             <Route exact path="/login" component={Login} />
             <Route path="/beers/:beerId" component={BeerShow} />
