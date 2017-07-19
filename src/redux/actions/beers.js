@@ -1,4 +1,4 @@
-import BeerService from '../../../services/BeerService'
+import BeerService from '../../services/BeerService'
 
 export function addBeer(beer) {
   return {

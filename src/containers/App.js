@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Home from '../views/Home';
 import Login from '../views/Login';
 import NotFound from '../views/NotFound';
-import { fetchBeers } from '../redux/modules/Beers/actions'
+import { fetchBeers } from '../redux/actions/beers'
 import AddBeer from '../components/AddBeer';
 import Beers from '../components/Beers';
 import BeerService from '../services/BeerService';

@@ -1,30 +1,16 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 // import { reducer as form } from 'redux-form';
-import beers from './modules/Beers/reducer';
-import auth from './modules/Auth/reducer';
-
-const beerFormData = ( state = {
-  name: '',
-  brewery: '',
-  ibu: '',
-  abv: '',
-  description: '',
-  image_url: '',
-  style: ''
-}, action) => {
-  return state
-}
-
-const currentBeer = ( state = {}, action) => {
-  return state
-}
+import auth from './reducers/auth';
+import beerFormData from './reducers/beerFormData';
+import beers from './reducers/beers';
+import currentBeer from './reducers/currentBeer';
 
 const reducers = combineReducers({
-  beers,
-  currentBeer,
   auth,
-  beerFormData
+  beerFormData,
+  beers,
+  currentBeer
 })
 
 const middleware = [thunk]
