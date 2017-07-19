@@ -40,7 +40,7 @@ class AddBeer extends Component {
 
   render() {
     return (
-      <BeerForm />
+      <BeerForm handleOnSubmit={this.handleOnSubmit}/>
     )
   }
 }
