@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
-import Home from '../views/Home';
-import Login from '../views/Login';
-import NotFound from '../views/NotFound';
-import { fetchBeers, addBeer } from '../redux/actions/beers'
-import AddBeer from '../components/AddBeer';
-import Beers from '../components/Beers';
-import BeerService from '../services/BeerService';
-import '../App.css';
+import Home from './views/Home';
+import Login from './views/Login';
+import NotFound from './views/NotFound';
+import { fetchBeers, addBeer } from './redux/actions/beers'
+import AddBeer from './components/AddBeer';
+import Beers from './components/Beers';
+import BeerService from './services/BeerService';
+import './App.css';
 
 class App extends Component {
   componentDidMount() {
