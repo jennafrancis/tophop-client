@@ -49,16 +49,15 @@ class App extends Component {
             <p>Something clever about craft beers</p>
           </div>
           <Switch>
-            <Route exact path="/" component={Home} beers={this.state.beers} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
           </Switch>
-
           <div className="main">
             <Beers beers={this.state.beers} />
           </div>
           <div className="form">
-            {/*}<AddBeer addBeer={this.addBeer}/>*/}
+            <AddBeer addBeer={this.addBeer}/>
           </div>
         </div>
       </Router>
