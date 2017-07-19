@@ -1,6 +1,6 @@
 import BeerService from '../../services/BeerService'
 
-export const beerFormData = ( state = {
+export default (state = {
   name: '',
   brewery: '',
   ibu: '',
@@ -8,4 +8,6 @@ export const beerFormData = ( state = {
   description: '',
   image_url: '',
   style: ''
-}, action)
+}, action) => {
+  return state
+}
