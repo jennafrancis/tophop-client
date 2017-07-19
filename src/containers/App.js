@@ -34,7 +34,7 @@ class App extends Component {
           </div>
           <div className="title">
             <h1>TopHop</h1>
-            <p>Because life's better when you're hoppy.</p>
+            <p>Life's better when you're hoppy.</p>
           </div>
 
           <Switch>
@@ -46,7 +46,7 @@ class App extends Component {
           </Switch>
 
           <div className="form">
-            <AddBeer addBeer={this.addBeer} beerFormData={this.props.beerFormData} />
+            {/*<AddBeer addBeer={this.addBeer} beerFormData={this.props.beerFormData} />*/}
           </div>
         </div>
       </Router>
