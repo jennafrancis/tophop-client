@@ -7,7 +7,7 @@ import NotFound from '../views/NotFound';
 import { fetchBeers } from '../redux/modules/Beers/actions'
 import AddBeer from '../components/AddBeer';
 import Beers from '../components/Beers';
-// import BeerService from '../services/BeerService';
+import BeerService from '../services/BeerService';
 import '../App.css';
 
 class App extends Component {
@@ -17,9 +17,9 @@ class App extends Component {
   }
 
   addBeer = beer => {
-    // BeerService.createBeer(beer).then(beer => this.setState({
-    //   beers: this.state.beers.concat(beer)
-    // }))
+    BeerService.createBeer(beer).then(beer => this.setState({
+      beers: this.state.beers.concat(beer)
+    }))
   }
 
   render() {

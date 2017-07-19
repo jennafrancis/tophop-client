@@ -7,6 +7,18 @@ export function addBeer(beer) {
   }
 }
 
+const appendBeers = beers => {
+  return {
+    type: 'SUCCESSFUL_BEERS_FETCH',
+    beers: beers
+  }
+}
+
 export const fetchBeers = () => {
-  BeerService.fetchBeers()
+  return dispatch => {
+    BeerService.fetchBeers()
+    .then(beers => {
+      dispatch(appendBeers(beers))
+    })
+  }
 }

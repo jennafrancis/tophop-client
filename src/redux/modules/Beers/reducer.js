@@ -5,10 +5,8 @@ export default function beers(state = [], action){
     case 'ADD_BEER':
       let beer = Object.assign({}, action.payload, { id: uuidV4() })
       return state.concat(beer)
-    case 'FETCH_BEERS':
-      return [
-        { name: "Puff", brewery: "sixpoint" }
-      ]
+    case 'SUCCESSFUL_BEERS_FETCH':
+      return action.beers
     default:
       return state;
   }
