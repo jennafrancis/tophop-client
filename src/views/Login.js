@@ -1,17 +1,18 @@
 import React from 'react';
 // import { connect } from 'react-redux';
 import { Field, reduxForm, handleSubmit } from 'redux-form'
+import login from '../redux/actions/auth'
 
 // const doSubmit = values => ajax.post('api/login', { data: values })
 
-let authenticateUser = () => {
-  alert("this part is complicated :(")
-}
+// let authenticateUser = () => {
+//   alert("this part is complicated :(")
+// }
 
 const LoginForm = ({ handleSubmit }) => (
   <div>
     <h3>Welcome back! Sign in to continue.</h3>
-    <form onSubmit={handleSubmit(authenticateUser)}>
+    <form onSubmit={handleSubmit(login)}>
       <div>
         <label>Email:</label><br />
         <Field name="email" component="input" type="email" placeholder="Email" />
@@ -29,5 +30,5 @@ const LoginForm = ({ handleSubmit }) => (
 
 
 export default reduxForm({
-  form: 'loginForm'
+  form: 'loginForm',
 })(LoginForm);

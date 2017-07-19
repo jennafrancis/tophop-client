@@ -1,16 +1,53 @@
 import 'isomorphic-fetch';
-import { reset, SubmissionError } from 'reduc-form'
+import { reset, SubmissionError } from 'redux-form'
 
-export const authenticationRequest = () => {
+export const AUTHENTICATION_REQUEST = 'AUTHENTICATION_REQUEST'
+export const AUTHENTICATION_SUCCESS = 'AUTHENTICATION_SUCCESS'
+
+function authenticationRequest(creds) {
   return {
-    type: 'AUTHENTICATION_REQUEST'
+    type: 'AUTHENTICATION_REQUEST',
+    isAuthenticating: true,
+    isAuthenticated: false,
+    creds
   }
 }
 
-export const setCurrentUser = user => {
+function setCurrentUser(user) {
   return {
     type: 'AUTHENTICATION_SUCCESS',
-    user
+    isAuthenticating: false,
+    isAuthenticated: true,
+    id_token: user.id_token
+  }
+}
+
+export default function login(creds, router) {
+  let config = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user: creds })
+  }
+
+  alert("i hate everything")
+  debugger
+
+  return dispatch => {
+    dispatch(authenticationRequest(creds))
+    return fetch('/auth', config)
+    .then(response => response.json())
+    .then(body => {
+      localStorage.setItem('e.tophop.token', body.token);
+      dispatch(setCurrentUser(body.user));
+      dispatch(reset('login'));
+      router.history.replace(`/`)
+    })
+    .catch(err => {
+      throw new SubmissionError(err)
+    })
   }
 }
 

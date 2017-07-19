@@ -12,7 +12,6 @@ import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    // BeerService.fetchBeers().then(beers => this.setState({ beers }))
     this.props.fetchBeers()
   }
 
