@@ -12,7 +12,6 @@ import NotFound from '../views/NotFound';
 
 import AddBeer from '../components/AddBeer';
 import Beers from '../components/Beers';
-import Navbar from '../components/Navbar';
 import BeerService from '../services/BeerService';
 import '../App.css';
 
@@ -36,11 +35,12 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
+
       <Router>
         <div className="App">
           <div className="navbar">
-            {/*<Navbar />*/}
             <NavLink className="navlink" to="/">Home</NavLink>
             <NavLink className="navlink" to="/login">Admin Login</NavLink>
           </div>
@@ -49,13 +49,13 @@ class App extends Component {
             <p>Something clever about craft beers</p>
           </div>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Home} beers={this.state.beers} />
             <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
           </Switch>
 
           <div className="main">
-            {/*<Beers beers={this.state.beers}/>*/}
+            <Beers beers={this.state.beers} />
           </div>
           <div className="form">
             {/*}<AddBeer addBeer={this.addBeer}/>*/}

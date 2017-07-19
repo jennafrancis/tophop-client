@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-const Home = () =>
-  <div> 
+const Home = (props) =>
+  <div>
     Home
   </div>
 
