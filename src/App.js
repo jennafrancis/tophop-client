@@ -42,11 +42,15 @@ class App extends Component {
             <Route exact path="/" render={(props) => (
               <Home {...props} beers={this.props.beers} />
             )} />
+            <Route exact path="/beers/new" render={(props) => (
+              <AddBeer {...props} addBeer={this.addBeer} />
+            )} />
             <Route exact path="/beers/slug" render={(props) => (
               <BeerShow {...props} beer={this.props.currentBeer} />
             )} />
             <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
+
           </Switch>
 
           <div className="form">
