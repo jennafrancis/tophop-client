@@ -32,7 +32,7 @@ class App extends Component {
         <div className="App">
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
-            <NavLink className="navlink" to="/login">Add a Beer</NavLink>
+            <NavLink className="navlink" to="/beers/new">Add a Beer</NavLink>
             <NavLink className="navlink" to="/login">Admin</NavLink>
           </div>
           <div className="title">
@@ -42,6 +42,9 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/beers" render={() => (
+              <h3>Please select a beer from the list.</h3>
+            )} />
             <Route exact path="/beers/new" render={(props) => (
               <AddBeer {...props} addBeer={this.addBeer} />
             )} />

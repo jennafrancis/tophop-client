@@ -8,9 +8,6 @@ const Home = ({ match, beers }) =>
   <div className="main">
     <Beers beers={beers} />
     <Route path={`${match.url}/:beerId`} component={BeerShow} />
-    <Route exact path={match.url} render={() => (
-      <h3>Please select a beer from the list.</h3>
-    )} />
   </div>
 
 const mapStateToProps = (state) => {
