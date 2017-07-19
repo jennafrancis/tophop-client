@@ -1,13 +1,17 @@
 import React from 'react';
 // import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, handleSubmit } from 'redux-form'
 
 // const doSubmit = values => ajax.post('api/login', { data: values })
 
-const LoginForm = (props) => (
+let authenticateUser = () => {
+  alert("this part is complicated :(")
+}
+
+const LoginForm = ({ handleSubmit }) => (
   <div>
     <h3>Welcome back! Sign in to continue.</h3>
-    <form>
+    <form onSubmit={handleSubmit(authenticateUser)}>
       <div>
         <label>Email:</label><br />
         <Field name="email" component="input" type="email" placeholder="Email" />

@@ -1,12 +1,13 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-// import { reducer as form } from 'redux-form';
+import { reducer as form } from 'redux-form';
 import auth from './reducers/auth';
 import beerFormData from './reducers/beerFormData';
 import beers from './reducers/beers';
 import currentBeer from './reducers/currentBeer';
 
 const reducers = combineReducers({
+  form,
   auth,
   beerFormData,
   beers,
