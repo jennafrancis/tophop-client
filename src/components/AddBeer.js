@@ -26,6 +26,7 @@ class AddBeer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const beer = this.state
+
     // this.props.addBeer(beer)
     // this.setState({
     //   name: '',
@@ -39,7 +40,6 @@ class AddBeer extends Component {
   }
 
   render() {
-    debugger
     return (
       <form onSubmit={this.handleOnSubmit}>
         <div>

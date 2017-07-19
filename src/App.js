@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom';
 import { connect } from 'react-redux';
-import Home from './views/Home';
-import Login from './views/Login';
-import NotFound from './views/NotFound';
-import { fetchBeers, addBeer } from './redux/actions/beers'
+
 import AddBeer from './components/AddBeer';
 import BeerDetails from './components/Beers';
 import Beers from './components/Beers';
 import BeerService from './services/BeerService';
 import BeerShow from './views/BeerShow';
+import Home from './views/Home';
+import Login from './views/Login';
+import NotFound from './views/NotFound';
+
+import { fetchBeers, addBeer } from './redux/actions/beers'
 import './App.css';
 
 class App extends Component {
@@ -31,6 +33,7 @@ class App extends Component {
         <div className="App">
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
+            <NavLink className="navlink" to="/login">Add a Beer</NavLink>
             <NavLink className="navlink" to="/login">Admin</NavLink>
           </div>
           <div className="title">
@@ -39,23 +42,16 @@ class App extends Component {
           </div>
 
           <Switch>
-            <Route exact path="/" render={(props) => (
-              <Home {...props} beers={this.props.beers} />
-            )} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/beers/new" render={(props) => (
               <AddBeer {...props} addBeer={this.addBeer} />
             )} />
-            <Route exact path="/beers/slug" render={(props) => (
+            <Route path={`:beerId`} render={(props) => (
               <BeerShow {...props} beer={this.props.currentBeer} />
             )} />
             <Route exact path="/login" component={Login} />
-            <Route component={NotFound} />
-
+            {/*<Route component={NotFound} />*/}
           </Switch>
-
-          <div className="form">
-            {/*<AddBeer addBeer={this.addBeer} beerFormData={this.props.beerFormData} />*/}
-          </div>
         </div>
       </Router>
     );
