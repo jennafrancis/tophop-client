@@ -12,4 +12,4 @@ const BeerDetails = ({ beer }) => {
   )
 }
 
-export default Beer;
+export default BeerDetails;

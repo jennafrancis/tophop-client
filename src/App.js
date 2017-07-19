@@ -6,8 +6,10 @@ import Login from './views/Login';
 import NotFound from './views/NotFound';
 import { fetchBeers, addBeer } from './redux/actions/beers'
 import AddBeer from './components/AddBeer';
+import BeerDetails from './components/Beers';
 import Beers from './components/Beers';
 import BeerService from './services/BeerService';
+import BeerShow from './views/BeerShow';
 import './App.css';
 
 class App extends Component {
@@ -39,6 +41,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={(props) => (
               <Home {...props} beers={this.props.beers} />
+            )} />
+            <Route exact path="/beers/slug" render={(props) => (
+              <BeerShow {...props} beer={this.props.currentBeer} />
             )} />
             <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
