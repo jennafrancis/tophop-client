@@ -12,7 +12,7 @@ const BeerDetais = ({ beer }) => {
   )
 }
 
-const BeerDetails = props => {
+const BeerDetails = beer => {
   <div><h3>Beer show component!</h3></div>
 }
 export default BeerDetails;

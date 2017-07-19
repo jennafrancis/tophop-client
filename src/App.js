@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom
 import { connect } from 'react-redux';
 
 import AddBeer from './components/AddBeer';
-import BeerDetails from './components/Beers';
 import Beers from './components/Beers';
 import BeerService from './services/BeerService';
 import BeerShow from './views/BeerShow';
@@ -46,11 +45,9 @@ class App extends Component {
             <Route exact path="/beers/new" render={(props) => (
               <AddBeer {...props} addBeer={this.addBeer} />
             )} />
-            <Route path={`:beerId`} render={(props) => (
-              <BeerShow {...props} beer={this.props.currentBeer} />
-            )} />
             <Route exact path="/login" component={Login} />
-            {/*<Route component={NotFound} />*/}
+            <Route path="/beers/:beerId" component={BeerShow} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
