@@ -1,9 +1,9 @@
 import React from 'react';
-import Beer from './Beer';
+import BeerBasicInfo from './BeerBasicInfo';
 
 const Beers = ({ beers }) => {
   const renderBeers = beers.map(beer =>
-    <Beer beer={beer}/>
+    <BeerBasicInfo beer={beer}/>
   )
 
   return (

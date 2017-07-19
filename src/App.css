@@ -24,18 +24,18 @@
 }
 
 .show-beer {
-  text-align: left;
+  /*text-align: left;*/
   clear: both;
   padding: 20px;
   color: rgba(49, 72, 82, 1)
 }
 
-.beer-name {
+.beer-basic {
   /*color: rgba(188, 115, 98, 1)*/
 }
 
 img {
-  float: left;
+  /*float: left;*/
   width: 180px;
   height: auto;
   padding-right: 15px
