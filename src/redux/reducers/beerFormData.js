@@ -1,3 +1,4 @@
+import uuidV4  from 'uuid/v4';
 import BeerService from '../../services/BeerService'
 
 export default (state = {
@@ -9,5 +10,11 @@ export default (state = {
   image_url: '',
   style: ''
 }, action) => {
-  return state
+  switch(action.type) {
+    case 'ADD_BEER':
+      let beer = Object.assign({}, action.payload, { id: uuidV4() })
+      return state.concat(beer)
+    default:
+      return state;
+  }
 }

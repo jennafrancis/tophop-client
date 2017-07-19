@@ -1,12 +1,5 @@
 import BeerService from '../../services/BeerService'
 
-export function addBeer(beer) {
-  return {
-    type: 'ADD_BEER',
-    payload: beer
-  }
-}
-
 const appendBeers = beers => {
   return {
     type: 'SUCCESSFUL_BEERS_FETCH',
@@ -20,5 +13,18 @@ export const fetchBeers = () => {
     .then(beers => {
       dispatch(appendBeers(beers))
     })
+  }
+}
+
+export function appendBeer(beer) {
+  return {
+    type: 'ADD_BEER',
+    payload: beer
+  }
+}
+
+export const addBeer = (beer) => {
+  return dispatch => {
+    BeerService.createBeer(beer)
   }
 }
