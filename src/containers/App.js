@@ -35,19 +35,19 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
-
       <Router>
         <div className="App">
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
             <NavLink className="navlink" to="/login">Admin Login</NavLink>
           </div>
+
           <div className="title">
             <h1>TopHop</h1>
             <p>Something clever about craft beers</p>
           </div>
+
           <Switch>
             <Route exact path="/" render={(props) => (
               <Home {...props} beers={this.state.beers} />
@@ -55,6 +55,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route component={NotFound} />
           </Switch>
+
           <div className="form">
             <AddBeer addBeer={this.addBeer}/>
           </div>
