@@ -26,21 +26,22 @@ class AddBeer extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const beer = this.state
-    this.props.addBeer(beer)
-    this.setState({
-      name: '',
-      brewery: '',
-      ibu: '',
-      abv: '',
-      description: '',
-      image_url: '',
-      style: ''
-    })
+    // this.props.addBeer(beer)
+    // this.setState({
+    //   name: '',
+    //   brewery: '',
+    //   ibu: '',
+    //   abv: '',
+    //   description: '',
+    //   image_url: '',
+    //   style: ''
+    // })
   }
 
   render() {
+    debugger
     return (
-      <form onSubmit={this.props.handleOnSubmit}>
+      <form onSubmit={this.handleOnSubmit}>
         <div>
           <h3>New beer info:</h3>
         </div>
