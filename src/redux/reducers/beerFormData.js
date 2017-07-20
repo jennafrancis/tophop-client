@@ -1,5 +1,4 @@
 import uuidV4  from 'uuid/v4';
-import BeerService from '../../services/BeerService'
 
 export default (state = {
   name: '',

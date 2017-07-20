@@ -3,27 +3,18 @@ import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom
 import { connect } from 'react-redux';
 
 import AddBeer from './components/AddBeer';
-import Beers from './components/Beers';
-import BeerService from './services/BeerService';
 import BeerShow from './views/BeerShow';
 import Home from './views/Home';
 import Login from './views/Login';
 import NotFound from './views/NotFound';
 
-import { fetchBeers, createBeer } from './redux/actions/beers'
+import { fetchBeers } from './redux/actions/beers'
 import './App.css';
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchBeers()
   }
-
-  // newBeer = (beer) => {
-  //   this.props.addBeer(beer)
-  //   // BeerService.createBeer(beer).then(beer => this.setState({
-  //   //   beers: this.state.beers.concat(beer)
-  //   // }))
-  // }
 
   render() {
     console.log(this.props)

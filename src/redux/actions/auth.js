@@ -32,9 +32,6 @@ export default function login(creds, router) {
     body: JSON.stringify({ user: creds })
   }
 
-  alert("i hate everything")
-  debugger
-
   return dispatch => {
     dispatch(authenticationRequest(creds))
     return fetch('/auth', config)

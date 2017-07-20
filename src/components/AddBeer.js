@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { createBeer } from '../redux/actions/beers';
 
 class AddBeer extends Component {

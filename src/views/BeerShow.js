@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import BeerDetails from '../components/BeerDetails';
 
 const BeerShow = ({ beer }) =>
   <div className="show-beer" key={beer.id}>

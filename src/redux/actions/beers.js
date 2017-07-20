@@ -19,7 +19,9 @@ export const fetchBeers = () => {
 export const createBeer = (beer) => {
   return dispatch => {
     return BeerService.createBeer(beer)
-      .then(beer => console.log(beer))
+      .then(beer => {
+      dispatch(appendBeer(beer))
+    })
   }
 }
 
