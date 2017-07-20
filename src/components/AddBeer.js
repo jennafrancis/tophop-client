@@ -42,13 +42,14 @@ class AddBeer extends Component {
   render() {
     return(
       <div>
-        <form onSubmit={this.handleOnSubmit}>
         <div>
-          <h3>New beer info:</h3>
+          <h2>New Beer Info:</h2>
         </div>
 
+        <form onSubmit={this.handleOnSubmit}>
+
         <div>
-          <label htmlFor="beer_name">Beer Name</label>
+          <label htmlFor="beer_name">Beer Name </label>
           <input
             type="text"
             name="name"
@@ -58,7 +59,7 @@ class AddBeer extends Component {
         </div>
 
         <div>
-          <label htmlFor="beer_brewery">Brewery Name</label>
+          <label htmlFor="beer_brewery">Brewery Name </label>
           <input
             type="text"
             name="brewery"
@@ -68,7 +69,7 @@ class AddBeer extends Component {
         </div>
 
         <div>
-          <label htmlFor="beer_ibu">IBU: International Bitterness Units</label>
+          <label htmlFor="beer_ibu">IBU: International Bitterness Units </label>
           <input
             type="number"
             name="ibu"
@@ -79,7 +80,7 @@ class AddBeer extends Component {
         </div>
 
         <div>
-          <label htmlFor="beer_abv">ABV: Alcohol by Volume (in percent)</label>
+          <label htmlFor="beer_abv">ABV: Alcohol by Volume (in percent) </label>
           <input
             type="number"
             step="0.1"
@@ -90,7 +91,7 @@ class AddBeer extends Component {
         </div>
 
         <div>
-          <label htmlFor="beer_description">Description</label>
+          <label htmlFor="beer_description">Description </label>
           <input
             type="text"
             name="description"
@@ -100,7 +101,7 @@ class AddBeer extends Component {
         </div>
 
         <div>
-          <label htmlFor="beer_image_url">Image Url</label>
+          <label htmlFor="beer_image_url">Image Url </label>
           <input
             type="url"
             name="image_url"
@@ -110,7 +111,7 @@ class AddBeer extends Component {
         </div>
 
         <div>
-          <label htmlFor="beer_style">Style</label>
+          <label htmlFor="beer_style">Style </label>
           <input
             type="text"
             name="style"
@@ -124,10 +125,6 @@ class AddBeer extends Component {
       </div>
     )
   }
-}
-
-const mapStateToProps = (state) => {
-
 }
 
 export default connect(null, { createBeer })(AddBeer);

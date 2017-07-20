@@ -27,8 +27,8 @@ class App extends Component {
             <NavLink className="navlink" to="/login">Login</NavLink>
           </div>
           <div className="title">
-            <h1>TopHop</h1>
-            <p>Life's better when you're hoppy.</p>
+            <h1 className="tophop">TopHop</h1>
+            <p className="catch-line">Life's better when you're hoppy.</p>
           </div>
 
           <Switch>
