@@ -16,15 +16,16 @@ export const fetchBeers = () => {
   }
 }
 
-export function appendBeer(beer) {
-  return {
-    type: 'ADD_BEER',
-    payload: beer
-  }
+export function createBeer(beer) {
+  return BeerService.createBeer(beer)
+  .then( beer => {
+    dispatch(appendBeer(beer))
+  }) 
 }
 
-export const addBeer = (beer) => {
-  return dispatch => {
-    BeerService.createBeer(beer)
+const appendBeer = beer => {
+  return {
+    type: 'SUCCESSFUL_CREATE_BEER',
+    payload: beer
   }
 }

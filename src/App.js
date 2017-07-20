@@ -10,7 +10,7 @@ import Home from './views/Home';
 import Login from './views/Login';
 import NotFound from './views/NotFound';
 
-import { fetchBeers, addBeer } from './redux/actions/beers'
+import { fetchBeers, createBeer } from './redux/actions/beers'
 import './App.css';
 
 class App extends Component {
@@ -18,12 +18,12 @@ class App extends Component {
     this.props.fetchBeers()
   }
 
-  newBeer = (beer) => {
-    this.props.addBeer(beer)
-    // BeerService.createBeer(beer).then(beer => this.setState({
-    //   beers: this.state.beers.concat(beer)
-    // }))
-  }
+  // newBeer = (beer) => {
+  //   this.props.addBeer(beer)
+  //   // BeerService.createBeer(beer).then(beer => this.setState({
+  //   //   beers: this.state.beers.concat(beer)
+  //   // }))
+  // }
 
   render() {
     console.log(this.props)
@@ -45,9 +45,7 @@ class App extends Component {
             <Route exact path="/beers" render={() => (
               <h3>Please select a beer from the list.</h3>
             )} />
-            <Route exact path="/beers/new" render={(props) => (
-              <AddBeer {...props} addBeer={this.newBeer} />
-            )} />
+            <Route exact path="/beers/new" component={AddBeer} />
             <Route exact path="/login" component={Login} />
             <Route path="/beers/:beerId" component={BeerShow} />
             <Route component={NotFound} />
@@ -60,9 +58,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   beers: state.beers,
-  currentBeer: state.currentBeer,
   beerFormData: state.beerFormData,
   auth: state.auth
 })
 
-export default connect(mapStateToProps, { fetchBeers, addBeer })(App);
+export default connect(mapStateToProps, { fetchBeers })(App);

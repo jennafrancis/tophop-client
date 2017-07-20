@@ -28,7 +28,6 @@ const LoginForm = ({ handleSubmit }) => (
   </div>
 )
 
-
 export default reduxForm({
   form: 'loginForm',
 })(LoginForm);
