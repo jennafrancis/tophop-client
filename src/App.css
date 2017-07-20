@@ -1,12 +1,12 @@
 .App {
   text-align: center;
-  font-family: Helvetica;
+  font-family: 'Bookman Old Style';
 }
 
 .navbar {
   font-family: "Trebuchet MS", Helvetica;
   color: white;
-  background-color: rgba(49, 72, 82, 1);
+  background-color: rgba(32, 29, 24, 1);
   text-align: right;
   padding: 4px
 }
@@ -15,13 +15,38 @@
   padding: 5px;
   color: white;
   text-decoration: none;
+  font-size: small;
+}
+
+.main {
+
 }
 
 .title {
-  color: rgba(30, 26, 45, 1);
+  background-color: rgba(32, 29, 24, 1);
+  color: rgba(254, 254, 243, 1);
+  /*font-family: 'Ubuntu', sans-serif;*/
+  text-shadow: 1px 1px rgba(197,184, 144, 1);
   font-family: 'Bookman Old Style', Arial;
   font-size: x-large;
   padding: 1px
+}
+
+.beer-list {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  max-height: 300px;
+}
+
+.beer-basic {
+  text-decoration: none;
+  color: rgba(49, 72, 82, 1);
+}
+
+.home-img {
+  width: auto;
+  max-height: 200px;
 }
 
 .show-beer {
@@ -29,15 +54,4 @@
   clear: both;
   padding: 20px;
   color: rgba(49, 72, 82, 1)
-}
-
-.beer-basic {
-  /*color: rgba(188, 115, 98, 1)*/
-}
-
-img {
-  /*float: left;*/
-  width: 180px;
-  height: auto;
-  padding-right: 15px
 }
