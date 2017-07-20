@@ -5,9 +5,8 @@ export default function beers(state = [], action){
     case 'SUCCESSFUL_CREATE_BEER':
       let beer = Object.assign({}, action.payload)
       return state.concat(beer)
-    case 'DELETE_BEER':
-      const beers = state.beers.filter(beer => beer.id !== action.id);
-      return  { beers }
+    case 'SUCESSFUL_DELETE_BEER':
+      return state.filter(beer => beer.id !== action.id)
     default:
       return state;
   }

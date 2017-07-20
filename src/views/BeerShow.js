@@ -2,18 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteBeer } from '../redux/actions/beers'
 
-// const BeerShow = ({ beer }) =>
-//   <div className="show-beer" key={beer.id}>
-//     <h2>{beer.name}, {beer.brewery}</h2>
-//     <p><img className="show-img" src={beer.image_url} alt={beer.name} /></p>
-//     <h3>{beer.style}</h3>
-//     <h4>ABV: {beer.abv}% | IBU: {beer.ibu}</h4>
-//     <p className="description">{beer.description}</p>
-//     <button>Delete Beer</button>
-//   </div>
-
 class BeerShow extends Component {
-  handleOnClick = () => {
+  handleOnDelete = () => {
     this.props.deleteBeer(this.props.beer, this.props.history)
   }
 
@@ -25,7 +15,7 @@ class BeerShow extends Component {
         <h3>{this.props.beer.style}</h3>
         <h4>ABV: {this.props.beer.abv}% | IBU: {this.props.beer.ibu}</h4>
         <p className="description">{this.props.beer.description}</p>
-        <button onClick={this.handleOnClick}>Delete Beer</button>
+        <button onClick={this.handleOnDelete}>Delete Beer</button>
       </div>
     )
   }

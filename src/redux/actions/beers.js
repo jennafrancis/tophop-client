@@ -34,18 +34,19 @@ const appendBeer = beer => {
 }
 
 export const deleteBeer = (beer, routerHistory) => {
+  const id = beer.id
   return dispatch => {
     return BeerService.deleteBeer(beer)
       .then(beer => {
-        dispatch(destroyBeer(beer));
-        routerHistory.push('/')
+        dispatch(destroyBeer(id))
+        routerHistory.push('/');
       })
   }
 }
 
-const destroyBeer = beer => {
+const destroyBeer = id => {
   return {
     type: 'SUCESSFUL_DELETE_BEER',
-    id: beer.id
+    id: id
   }
 }
