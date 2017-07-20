@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { newBeer } from '../redux/actions/beers';
+import { createBeer } from '../redux/actions/beers';
 
-export default class AddBeer extends Component {
+class AddBeer extends Component {
   constructor(props) {
     super(props)
 
@@ -27,12 +27,12 @@ export default class AddBeer extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    newBeer(this.state)
+    this.props.createBeer(this.state)
   }
 
   render() {
     return(
-      <form onSubmit={this.handleOnSubmit.bind(this)}>
+      <form onSubmit={this.handleOnSubmit}>
       <div>
         <h3>New beer info:</h3>
       </div>
@@ -43,7 +43,7 @@ export default class AddBeer extends Component {
           type="text"
           name="name"
           value={this.state.name}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -53,7 +53,7 @@ export default class AddBeer extends Component {
           type="text"
           name="brewery"
           value={this.state.brewery}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -64,7 +64,7 @@ export default class AddBeer extends Component {
           name="ibu"
           step="1"
           value={this.state.ibu}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -75,7 +75,7 @@ export default class AddBeer extends Component {
           step="0.1"
           name="abv"
           value={this.state.abv}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -85,7 +85,7 @@ export default class AddBeer extends Component {
           type="text"
           name="description"
           value={this.state.description}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -95,7 +95,7 @@ export default class AddBeer extends Component {
           type="url"
           name="image_url"
           value={this.state.image_url}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -105,7 +105,7 @@ export default class AddBeer extends Component {
           type="text"
           name="style"
           value={this.state.style}
-          onChange={this.handleOnChange.bind(this)}
+          onChange={this.handleOnChange}
           />
       </div>
 
@@ -115,4 +115,4 @@ export default class AddBeer extends Component {
   }
 }
 
-// export const ConnectedAddBeer = connect(null, { createBeer })(AddBeer);
+export default connect(null, { createBeer })(AddBeer);

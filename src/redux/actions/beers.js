@@ -10,16 +10,16 @@ const appendBeers = beers => {
 export const fetchBeers = () => {
   return dispatch => {
     BeerService.fetchBeers()
-    .then(beers => {
-      dispatch(appendBeers(beers))
-    })
+      .then(beers => {
+        dispatch(appendBeers(beers))
+      })
   }
 }
 
-export const newBeer = (beer) => {
+export const createBeer = (beer) => {
   return dispatch => {
-    BeerService.createBeer(beer)
-    .then( beer => console.log(beer))
+    return BeerService.createBeer(beer)
+      .then(beer => console.log(beer))
   }
 }
 
