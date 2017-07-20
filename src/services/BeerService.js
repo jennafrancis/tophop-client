@@ -7,6 +7,7 @@ const BeerService = {
   },
 
   createBeer(beer) {
+    debugger
     const request = {
       method: 'POST',
       body: JSON.stringify({

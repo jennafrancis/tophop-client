@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { createBeer } from '../redux/actions/beers';
+import { newBeer } from '../redux/actions/beers';
 
-export class AddBeer extends Component {
+export default class AddBeer extends Component {
   constructor(props) {
     super(props)
 
@@ -27,7 +27,7 @@ export class AddBeer extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createBeer(this.state)
+    newBeer(this.state)
   }
 
   render() {
@@ -115,4 +115,4 @@ export class AddBeer extends Component {
   }
 }
 
-export const ConnectedAddBeer = connect(null, { createBeer })(AddBeer);
+// export const ConnectedAddBeer = connect(null, { createBeer })(AddBeer);
