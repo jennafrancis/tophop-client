@@ -19,6 +19,14 @@ const BeerService = {
 
     return fetch(`${API_URL}/beers`, request)
       .then(response => response.json())
+  },
+
+  deleteBeer(beer) {
+    debugger
+    return fetch(`${API_URL}/beers/` + beer.id, {
+      method: 'delete'
+    })
+    .then(response => response.json())
   }
 }
 

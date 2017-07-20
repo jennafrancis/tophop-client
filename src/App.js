@@ -49,7 +49,6 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   beers: state.beers,
-  beerFormData: state.beerFormData,
   auth: state.auth
 })
 

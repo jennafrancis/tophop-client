@@ -66,7 +66,7 @@
   font-variant: normal;
 }
 
-img {
+.show-img {
   float: left;
   max-width: 40%;
   max-height: 400px;
