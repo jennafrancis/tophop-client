@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 const BeerShow = ({ beer }) =>
   <div className="show-beer" key={beer.id}>
-    <h3 className="beer-name">{beer.name}, {beer.brewery}</h3>
+    <h2 className="beer-name">{beer.name}, {beer.brewery}</h2>
     <p><img src={beer.image_url} alt={beer.name} /></p>
-    <p>{beer.style}</p>
-    <p>IBU: {beer.ibu} | ABV: {beer.abv}% </p>
-    <p>{beer.description}</p>
+    <h3>{beer.style}</h3>
+    <h4>ABV: {beer.abv}% | IBU: {beer.ibu}</h4>
+    <p className="description">{beer.description}</p>
   </div>
 
 const mapStateToProps = (state, ownProps) => {

@@ -11,7 +11,7 @@ import login from '../redux/actions/auth'
 
 const LoginForm = ({ handleSubmit }) => (
   <div>
-    <h3>Welcome back! Sign in to continue.</h3>
+    <h2>Welcome back! Sign in to continue.</h2>
     <form onSubmit={handleSubmit(login)}>
       <div>
         <label>Email:</label><br />
