@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const BeerShow = ({ beer }) =>
   <div className="show-beer" key={beer.id}>
-    <h2 className="beer-name">{beer.name}, {beer.brewery}</h2>
+    <h2>{beer.name}, {beer.brewery}</h2>
     <p><img src={beer.image_url} alt={beer.name} /></p>
     <h3>{beer.style}</h3>
     <h4>ABV: {beer.abv}% | IBU: {beer.ibu}</h4>

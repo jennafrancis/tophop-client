@@ -57,10 +57,9 @@
 }
 
 .show-beer {
-  /*text-align: left;*/
-  clear: both;
   padding: 20px;
-  color: rgba(49, 72, 82, 1)
+  color: rgba(49, 72, 82, 1);
+  text-align: left
 }
 
 .description {
@@ -68,6 +67,8 @@
 }
 
 img {
-  max-width: 90%;
-  max-height: 400px
+  float: left;
+  max-width: 40%;
+  max-height: 400px;
+  padding-right: 20px;
 }
