@@ -16,12 +16,13 @@ export const fetchBeers = () => {
   }
 }
 
-export const createBeer = (beer) => {
+export const createBeer = (beer, routerHistory) => {
   return dispatch => {
     return BeerService.createBeer(beer)
       .then(beer => {
-      dispatch(appendBeer(beer))
-    })
+        dispatch(appendBeer(beer));
+        routerHistory.push('/')
+      })
   }
 }
 
