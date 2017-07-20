@@ -12,6 +12,7 @@ export default (state = initialState, action) => {
         isAuthenticating: true,
       }
     case 'AUTHENTICATION_SUCCESS':
+      debugger
       return {
         isAuthenticated: true,
         isAuthenticating: false,

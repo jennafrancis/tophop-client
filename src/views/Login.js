@@ -1,33 +1,53 @@
-import React from 'react';
-// import { connect } from 'react-redux';
-import { Field, reduxForm, handleSubmit } from 'redux-form'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import login from '../redux/actions/auth'
 
-// const doSubmit = values => ajax.post('api/login', { data: values })
+class LoginForm extends Component {
+  constructor(props) {
+    super(props)
 
-// let authenticateUser = () => {
-//   alert("this part is complicated :(")
-// }
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
 
-const LoginForm = ({ handleSubmit }) => (
-  <div>
-    <h2>Welcome back! Sign in to continue.</h2>
-    <form onSubmit={handleSubmit(login)}>
+  handleOnChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.login(this.state, this.props.history);
+    this.setState({
+      email: '',
+      password: ''
+    })
+  }
+
+  render() {
+    return (
       <div>
-        <label>Email:</label><br />
-        <Field name="email" component="input" type="email" placeholder="Email" />
+        <h2>Welcome back! Sign in to continue.</h2>
+        <form>
+          <div>
+            <label>Email:</label><br />
+            <input name="email" type="email" value={this.state.email} onChange={this.handleOnChange}/>
+          </div>
+          <br></br>
+          <div>
+            <label>Password:</label><br />
+            <input name="password" type="password" value={this.state.password} onChange={this.handleOnChange} />
+          </div>
+          <br></br>
+          <button onClick={this.handleOnSubmit}>Log in</button>
+        </form>
       </div>
-      <br></br>
-      <div>
-        <label>Password:</label><br />
-        <Field name="password" component="input" type="password" placeholder="Password" />
-      </div>
-      <br></br>
-      <button type="submit">Log in</button>
-    </form>
-  </div>
-)
+    )
+  }
+}
 
-export default reduxForm({
-  form: 'loginForm',
-})(LoginForm);
+export default connect(null, { login })(LoginForm)

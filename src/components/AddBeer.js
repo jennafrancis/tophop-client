@@ -43,7 +43,7 @@ class AddBeer extends Component {
     return(
       <div>
         <div>
-          <h2>New Beer Info:</h2>
+          <h2>Beer Info:</h2>
         </div>
 
         <form onSubmit={this.handleOnSubmit}>

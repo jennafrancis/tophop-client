@@ -1,5 +1,6 @@
 import 'isomorphic-fetch';
 import { reset, SubmissionError } from 'redux-form'
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const AUTHENTICATION_REQUEST = 'AUTHENTICATION_REQUEST'
 export const AUTHENTICATION_SUCCESS = 'AUTHENTICATION_SUCCESS'
@@ -18,33 +19,51 @@ function setCurrentUser(user) {
     type: 'AUTHENTICATION_SUCCESS',
     isAuthenticating: false,
     isAuthenticated: true,
-    id_token: user.id_token
+    id: user.id
   }
 }
+
+// createBeer(beer) {
+//   const request = {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       beer: beer
+//     }),
+//     headers: {
+//       'Content-Type': 'application/json',
+//     }
+//   }
+//
+//   return fetch(`${API_URL}/beers`, request)
+//     .then(response => response.json())
+// },
 
 export default function login(creds, router) {
   let config = {
     method: 'POST',
+    body: JSON.stringify({
+      user: creds
+    }),
     headers: {
-      'Accept': 'application/json',
+      'Accept' : 'application/json',
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ user: creds })
+    }
   }
 
   return dispatch => {
     dispatch(authenticationRequest(creds))
-    return fetch('/auth', config)
-    .then(response => response.json())
-    .then(body => {
-      localStorage.setItem('e.tophop.token', body.token);
-      dispatch(setCurrentUser(body.user));
-      dispatch(reset('login'));
-      router.history.replace(`/`)
+    debugger
+    return fetch(`${API_URL}/auth`, config)
+      .then(response => response.json())
+      .then(body => {
+        debugger
+        localStorage.setItem('e.tophop.token', body.token);
+        dispatch(setCurrentUser(body.user));
+        router.history.replace(`/`)
     })
-    .catch(err => {
-      throw new SubmissionError(err)
-    })
+    // .catch(err => {
+    //   throw new SubmissionError(err)
+    // })
   }
 }
 
