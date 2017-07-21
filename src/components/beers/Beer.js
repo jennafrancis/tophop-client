@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteBeer } from '../redux/actions/beers'
+import { deleteBeer } from '../../redux/actions/beers'
 
-class BeerShow extends Component {
+class Beer extends Component {
   handleOnDelete = () => {
     this.props.deleteBeer(this.props.beer, this.props.history)
   }
@@ -32,4 +32,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps, { deleteBeer })(BeerShow);
+export default connect(mapStateToProps, { deleteBeer })(Beer);

@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import AddBeer from './components/AddBeer';
-import BeerShow from './views/BeerShow';
-import Home from './views/Home';
-import Login from './views/Login';
-import Logout from './views/Logout';
-import NotFound from './views/NotFound';
-import Admin from './views/Admin';
+import AddBeer from './components/beers/AddBeer';
+import Admin from './components/users/Admin';
+import Beer from './components/beers/Beer';
+import Home from './components/beers/Home';
+import Login from './components/users/Login';
+import Logout from './components/users/Logout';
+import NotFound from './components/NotFound';
 
 import { fetchBeers } from './redux/actions/beers'
+
 import './App.css';
 
 class App extends Component {
@@ -20,13 +21,11 @@ class App extends Component {
 
   requireAuth = () => {
     if (!this.props.auth.isAuthenticated) {
-      debugger
       this.props.history.push('/admin')
     }
   }
 
   render() {
-    console.log(this.props)
     return (
       <Router>
         <div className="App">
@@ -58,14 +57,13 @@ class App extends Component {
               !this.props.auth.isAuthenticated ? (
                 <Redirect to='/admin'/>
               ) : (
-                <AddBeer />
+                <Route component={AddBeer} />
               )
             )}/>
-            <Route exact path="/beers/new" component={AddBeer} onEnter={this.requireAuth}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Route exact path="/admin" component={Admin} />
-            <Route path="/beers/:beerId" component={BeerShow} />
+            <Route path="/beers/:beerId" component={Beer} />
             <Route component={NotFound} />
           </Switch>
         </div>

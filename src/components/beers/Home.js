@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-import Beers from '../components/Beers';
-import BeerShow from './BeerShow';
+import BeerList from './BeerList';
+import Beer from './Beer';
 
 const Home = ({ match, beers }) =>
   <div>
     <h2>Featured Brews:</h2>
     <div className="main">
-      <Beers beers={beers} />
-      <Route path={`${match.url}/:beerId`} component={BeerShow} />
+      <BeerList beers={beers} />
+      <Route path={`${match.url}/:beerId`} component={Beer} />
     </div>
   </div>
 

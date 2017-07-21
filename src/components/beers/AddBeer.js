@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createBeer } from '../redux/actions/beers';
+import { createBeer } from '../../redux/actions/beers';
 
 class AddBeer extends Component {
   constructor(props) {
@@ -36,18 +36,14 @@ class AddBeer extends Component {
       image_url: '',
       style: ''
     })
-
   }
 
   render() {
     return(
       <div>
-        <div>
-          <h2>Beer Info:</h2>
-        </div>
+        <h2>Beer Info:</h2>
 
         <form onSubmit={this.handleOnSubmit}>
-
         <div>
           <label htmlFor="beer_name">Beer Name </label>
           <input

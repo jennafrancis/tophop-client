@@ -2,12 +2,6 @@ import 'isomorphic-fetch';
 import { reset, SubmissionError } from 'redux-form'
 const API_URL = process.env.REACT_APP_API_URL;
 
-// LOGIN FEATURES
-
-export const AUTHENTICATION_REQUEST = 'AUTHENTICATION_REQUEST'
-export const AUTHENTICATION_SUCCESS = 'AUTHENTICATION_SUCCESS'
-export const AUTHENTICATION_FAILURE = 'AUTHENTICATION_FAILURE'
-
 function authenticationRequest(creds) {
   return {
     type: 'AUTHENTICATION_REQUEST',

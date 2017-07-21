@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const Beers = ({ beers }) => {
+const BeerList = ({ beers }) => {
   const renderBeers = beers.map(beer =>
     <div className="beer-list" key={beer.id}>
       <Link to={`/beers/${beer.id}`} className="beer-basic"><h4 >{beer.name}, {beer.brewery}</h4></Link>
@@ -16,4 +16,4 @@ const Beers = ({ beers }) => {
   )
 }
 
-export default Beers;
+export default BeerList;

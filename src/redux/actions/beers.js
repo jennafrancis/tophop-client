@@ -1,5 +1,12 @@
 import BeerService from '../../services/BeerService'
 
+const appendBeers = beers => {
+  return {
+    type: 'SUCCESSFUL_BEERS_FETCH',
+    beers: beers
+  }
+}
+
 export const fetchBeers = () => {
   return dispatch => {
     BeerService.fetchBeers()
@@ -9,10 +16,10 @@ export const fetchBeers = () => {
   }
 }
 
-const appendBeers = beers => {
+const appendBeer = beer => {
   return {
-    type: 'SUCCESSFUL_BEERS_FETCH',
-    beers: beers
+    type: 'SUCCESSFUL_CREATE_BEER',
+    payload: beer
   }
 }
 
@@ -26,10 +33,10 @@ export const createBeer = (beer, routerHistory) => {
   }
 }
 
-const appendBeer = beer => {
+const destroyBeer = id => {
   return {
-    type: 'SUCCESSFUL_CREATE_BEER',
-    payload: beer
+    type: 'SUCESSFUL_DELETE_BEER',
+    id: id
   }
 }
 
@@ -41,12 +48,5 @@ export const deleteBeer = (beer, routerHistory) => {
         dispatch(destroyBeer(id))
         routerHistory.push('/');
       })
-  }
-}
-
-const destroyBeer = id => {
-  return {
-    type: 'SUCESSFUL_DELETE_BEER',
-    id: id
   }
 }
