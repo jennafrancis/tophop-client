@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import BeerLove from './BeerLove'
 
-const BeerList = ({ beers }) => {
-  const renderBeers = beers.map(beer =>
-    <div className="beer-list" key={beer.id}>
-      <Link to={`/beers/${beer.id}`} className="beer-basic"><h4 >{beer.name}, {beer.brewery}</h4></Link>
-      <p><img className="home-img" src={beer.image_url} alt={beer.name} /></p>
-    </div>
-  );
+class BeerList extends Component {
+  render() {
+    const renderBeers = this.props.beers.map(beer =>
+      <BeerLove beer={beer} count='5' />
+    );
 
-  return (
-    <div>
-      {renderBeers}
-    </div>
-  )
+    return (
+      <div>
+        {renderBeers}
+      </div>
+    )
+  }
 }
 
 export default BeerList;
