@@ -2,8 +2,11 @@ import 'isomorphic-fetch';
 import { reset, SubmissionError } from 'redux-form'
 const API_URL = process.env.REACT_APP_API_URL;
 
+// LOGIN FEATURES
+
 export const AUTHENTICATION_REQUEST = 'AUTHENTICATION_REQUEST'
 export const AUTHENTICATION_SUCCESS = 'AUTHENTICATION_SUCCESS'
+export const AUTHENTICATION_FAILURE = 'AUTHENTICATION_FAILURE'
 
 function authenticationRequest(creds) {
   return {
@@ -23,20 +26,14 @@ function setCurrentUser(user) {
   }
 }
 
-// createBeer(beer) {
-//   const request = {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       beer: beer
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json',
-//     }
-//   }
-//
-//   return fetch(`${API_URL}/beers`, request)
-//     .then(response => response.json())
-// },
+function loginError(message) {
+  return {
+    type: 'AUTHENTICATION_FAILURE',
+    isAuthenticating: false,
+    isAuthenticated: false,
+    message
+  }
+}
 
 export default function login(creds, router) {
   let config = {
@@ -52,21 +49,50 @@ export default function login(creds, router) {
 
   return dispatch => {
     dispatch(authenticationRequest(creds))
-    debugger
     return fetch(`${API_URL}/auth`, config)
       .then(response => response.json())
       .then(body => {
-        debugger
-        localStorage.setItem('e.tophop.token', body.token);
-        dispatch(setCurrentUser(body.user));
-        router.history.replace(`/`)
-    })
-    // .catch(err => {
-    //   throw new SubmissionError(err)
-    // })
+        if (body.user.id) {
+          localStorage.setItem('tophop.token', body.token);
+          dispatch(setCurrentUser(body.user));
+          router.replace(`/`)
+        } else {
+          dispatch(loginError(body.error))
+          return Promise.reject(body)
+        }
+    }).catch(err => console.log("Error: ", err))
   }
 }
 
+// LOGOUT FEATURES
+
+// export const LOGOUT_REQUEST = 'LOGOUT_REQUEST'
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+// export const LOGOUT_FAILURE = 'LOGOUT_FAILURE'
+
+// function requestLogout() {
+//   return {
+//     type: LOGOUT_REQUEST,
+//     isAuthenticating: true,
+//     isAuthenticated: true
+//   }
+// }
+
+function receiveLogout() {
+  return {
+    type: LOGOUT_SUCCESS,
+    isAuthenticating: false,
+    isAuthenticated: false
+  }
+}
+
+export function logoutUser() {
+  return dispatch => {
+    // dispatch(requestLogout())
+    localStorage.removeItem('tophop.token')
+    dispatch(receiveLogout())
+  }
+}
 // export const signup = (userDetails, router) => {
 //   return dispatch => {
 //     dispatch(authenticationRequest())

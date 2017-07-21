@@ -21,11 +21,20 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
-            <NavLink className="navlink" to="/beers/new">Add a Beer</NavLink>
-            <NavLink className="navlink" to="/login">Login</NavLink>
+            {!isAuthenticated &&
+              <NavLink className="navlink" to="/login">Login</NavLink>
+            };
+            {isAuthenticated &&
+              <div>
+                <NavLink className="navlink" to="/beers/new">Add a Beer</NavLink>
+                <NavLink className="navlink" to="/logout">Logout</NavLink>
+              </div>
+            }
           </div>
+
           <div className="title">
             <h1 className="tophop">TopHop</h1>
             <p className="catch-line">Life's better when you're hoppy.</p>
@@ -38,6 +47,7 @@ class App extends Component {
             )} />
             <Route exact path="/beers/new" component={AddBeer} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
             <Route path="/beers/:beerId" component={BeerShow} />
             <Route component={NotFound} />
           </Switch>
