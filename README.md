@@ -1,6 +1,8 @@
 TopHop
 
-TopHop description
+“At TopHop, we know that life is better when you’re hoppy. That’s why we religiously taste new releases from our favoritie breweries and report back to you with only the best.” - Jenna Francis, Founder and CTO
+
+TopHop is an admin-run beer application that provides a user with a curated list of awesome brews and their details.
 
 TopHop is a React- and Redux-based web application built using a rails backend API. This is the repository for the React-based front end, Rails-based backend repository can be found at https://github.com/jennafrancis/tophop-api.
 
