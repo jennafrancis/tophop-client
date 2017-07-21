@@ -15,7 +15,9 @@ class BeerShow extends Component {
         <h3>{this.props.beer.style}</h3>
         <h4>ABV: {this.props.beer.abv}% | IBU: {this.props.beer.ibu}</h4>
         <p className="description">{this.props.beer.description}</p>
-        <button onClick={this.handleOnDelete}>Delete Beer</button>
+        {this.props.isAuthenticated &&
+          <button onClick={this.handleOnDelete}>Delete Beer</button>
+        }
       </div>
     )
   }
@@ -24,9 +26,9 @@ class BeerShow extends Component {
 const mapStateToProps = (state, ownProps) => {
   const beer = state.beers.find(beer => beer.id == ownProps.match.params.beerId)
   if (beer) {
-    return { beer }
+    return { beer, isAuthenticated: state.auth.isAuthenticated }
   } else {
-    return { beer: {} }
+    return { beer: {}, isAuthenticated: state.auth.isAuthenticated }
   }
 }
 

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AddBeer from './components/AddBeer';
 import BeerShow from './views/BeerShow';
 import Home from './views/Home';
 import Login from './views/Login';
+import Logout from './views/Logout';
 import NotFound from './views/NotFound';
+import Admin from './views/Admin';
 
 import { fetchBeers } from './redux/actions/beers'
 import './App.css';
@@ -14,6 +16,13 @@ import './App.css';
 class App extends Component {
   componentDidMount() {
     this.props.fetchBeers()
+  }
+
+  requireAuth = () => {
+    if (!this.props.auth.isAuthenticated) {
+      debugger
+      this.props.history.push('/admin')
+    }
   }
 
   render() {
@@ -24,14 +33,14 @@ class App extends Component {
 
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
-            {!isAuthenticated &&
+            {!this.props.auth.isAuthenticated &&
               <NavLink className="navlink" to="/login">Login</NavLink>
             };
-            {isAuthenticated &&
-              <div>
+            {this.props.auth.isAuthenticated &&
+              <span>
                 <NavLink className="navlink" to="/beers/new">Add a Beer</NavLink>
                 <NavLink className="navlink" to="/logout">Logout</NavLink>
-              </div>
+              </span>
             }
           </div>
 
@@ -45,9 +54,17 @@ class App extends Component {
             <Route exact path="/beers" render={() => (
               <h3>Please select a beer from the list.</h3>
             )} />
-            <Route exact path="/beers/new" component={AddBeer} />
+            <Route exact path="/beers/new" render={() => (
+              !this.props.auth.isAuthenticated ? (
+                <Redirect to='/admin'/>
+              ) : (
+                <AddBeer />
+              )
+            )}/>
+            <Route exact path="/beers/new" component={AddBeer} onEnter={this.requireAuth}/>
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
+            <Route exact path="/admin" component={Admin} />
             <Route path="/beers/:beerId" component={BeerShow} />
             <Route component={NotFound} />
           </Switch>

@@ -1,7 +1,8 @@
 const initialState = {
   isAuthenticated: localStorage.getItem('tophop.token') ? true : false,
   isAuthenticating: false,
-  currentUser: {}
+  currentUser: {},
+  errorMessage: ''
 }
 
 export default (state = initialState, action) => {
