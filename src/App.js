@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   requireAuth = () => {
-    if (!this.props.auth.isAuthenticated) {
+    if (!this.props.isAuthenticated) {
       this.props.history.push('/admin')
     }
   }
@@ -32,10 +32,10 @@ class App extends Component {
 
           <div className="navbar">
             <NavLink className="navlink" to="/">Home</NavLink>
-            {!this.props.auth.isAuthenticated &&
+            {!this.props.isAuthenticated &&
               <NavLink className="navlink" to="/login">Login</NavLink>
             };
-            {this.props.auth.isAuthenticated &&
+            {this.props.isAuthenticated &&
               <span>
                 <NavLink className="navlink" to="/beers/new">Add a Beer</NavLink>
                 <NavLink className="navlink" to="/logout">Logout</NavLink>
@@ -54,7 +54,7 @@ class App extends Component {
               <h3>Please select a beer from the list.</h3>
             )} />
             <Route exact path="/beers/new" render={() => (
-              !this.props.auth.isAuthenticated ? (
+              !this.props.isAuthenticated ? (
                 <Redirect to='/admin'/>
               ) : (
                 <Route component={AddBeer} />
@@ -74,7 +74,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   beers: state.beers,
-  auth: state.auth
+  isAuthenticated: state.auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, { fetchBeers })(App);
