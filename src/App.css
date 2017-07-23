@@ -43,7 +43,8 @@
   padding: 1%;
   display: inline-block;
   vertical-align: top;
-  height: 300px;
+  height: 325px;
+  line-height: 80%;
 }
 
 .beer-basic {
