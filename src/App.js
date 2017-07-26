@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 
 import AddBeer from './components/beers/AddBeer';
 import Admin from './components/users/Admin';
+import AllBeers from './components/beers/AllBeers';
 import Beer from './components/beers/Beer';
-import Home from './components/beers/Home';
+import Featured from './components/beers/Featured';
 import Login from './components/users/Login';
 import Logout from './components/users/Logout';
 import NotFound from './components/NotFound';
@@ -29,9 +30,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-
           <div className="navbar">
-            <NavLink className="navlink" to="/">Home</NavLink>
+            <NavLink className="navlink" to="/">Featured</NavLink>
+            <NavLink className="navlink" to="/beers">All Brews</NavLink>
             {!this.props.isAuthenticated &&
               <NavLink className="navlink" to="/login">Login</NavLink>
             };
@@ -49,10 +50,8 @@ class App extends Component {
           </div>
 
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/beers" render={() => (
-              <h3>Please select a beer from the list.</h3>
-            )} />
+            <Route exact path="/" component={Featured} />
+            <Route exact path="/beers" component={AllBeers} />
             <Route exact path="/beers/new" render={() => (
               !this.props.isAuthenticated ? (
                 <Redirect to='/admin'/>

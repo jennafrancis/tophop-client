@@ -4,9 +4,9 @@ import { Route } from 'react-router-dom';
 import BeerList from './BeerList';
 import Beer from './Beer';
 
-const Home = ({ match, beers }) =>
+const AllBeers = ({ match, beers }) =>
   <div>
-    <h2>Featured Brews:</h2>
+    <h2>All Brews:</h2>
     <div className="main">
       <BeerList beers={beers} />
       <Route path={`${match.url}/:beerId`} component={Beer} />
@@ -19,4 +19,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(AllBeers);
