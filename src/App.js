@@ -22,12 +22,6 @@ class App extends Component {
     this.props.fetchBeers()
   }
 
-  requireAuth = () => {
-    if (!this.props.isAuthenticated) {
-      this.props.history.push('/admin')
-    }
-  }
-
   render() {
     return (
       <Router>
