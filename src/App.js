@@ -8,6 +8,7 @@ import AllBeers from './components/beers/AllBeers';
 import Beer from './components/beers/Beer';
 import Featured from './components/beers/Featured';
 import Login from './components/users/Login';
+import LoggedIn from './components/users/LoggedIn';
 import Logout from './components/users/Logout';
 import NotFound from './components/NotFound';
 import Signup from './components/users/Signup';
@@ -58,7 +59,7 @@ class App extends Component {
             <Route exact path="/beers" component={AllBeers} />
             <Route exact path="/beers/new" render={() => (
               !this.props.isAuthenticated ? (
-                <Redirect to='/admin'/>
+                <Redirect to='/oops'/>
               ) : (
                 <Route component={AddBeer} />
               )
@@ -66,6 +67,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Route exact path="/admin" component={Admin} />
+            <Route exact path="/oops" component={LoggedIn} />
             <Route exact path="/signup" component={Signup} />
             <Route path="/beers/:beerId" component={Beer} />
             <Route component={NotFound} />
