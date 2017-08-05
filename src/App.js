@@ -10,6 +10,7 @@ import Featured from './components/beers/Featured';
 import Login from './components/users/Login';
 import Logout from './components/users/Logout';
 import NotFound from './components/NotFound';
+import Signup from './components/Signup';
 
 import { fetchBeers } from './redux/actions/beers'
 
@@ -34,7 +35,8 @@ class App extends Component {
             <NavLink className="navlink" to="/">Featured</NavLink>
             <NavLink className="navlink" to="/beers">All Brews</NavLink>
             {!this.props.isAuthenticated &&
-              <NavLink className="navlink" to="/login">Login</NavLink>
+              <NavLink className="navlink" to="/login">Log In</NavLink>
+              <NavLink className="navlink" to="/signup">Sign Up</NavLink>
             };
             {this.props.isAuthenticated &&
               <span>
@@ -62,6 +64,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Route exact path="/admin" component={Admin} />
+            <Route exact path="/signup" component={Signup} />
             <Route path="/beers/:beerId" component={Beer} />
             <Route component={NotFound} />
           </Switch>
