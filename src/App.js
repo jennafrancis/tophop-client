@@ -19,7 +19,10 @@ import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchBeers()
+    this.props.fetchBeers();
+    {/*this.props.isAuthenticated &&
+      this.props.fetchUser()
+    */}
   }
 
   render() {

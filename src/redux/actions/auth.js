@@ -40,7 +40,7 @@ export default function login(creds, router) {
       'Content-Type': 'application/json'
     }
   }
-  
+
   return dispatch => {
     dispatch(authenticationRequest(creds))
     return fetch(`${API_URL}/auth`, config)
@@ -48,6 +48,7 @@ export default function login(creds, router) {
       .then(body => {
         if (body.user.id) {
           localStorage.setItem('tophop.token', body.token);
+          localStorage.setItem('tophop.admin', body.user.admin);
           dispatch(setCurrentUser(body.user));
           router.replace(`/`)
         } else {

@@ -1,7 +1,7 @@
 const initialState = {
   isAuthenticated: localStorage.getItem('tophop.token') ? true : false,
   isAuthenticating: false,
-  currentUser: {},
+  currentUser: { admin: localStorage.getItem('tophop.admin') ? true : false },
   errorMessage: ''
 }
 
