@@ -10,7 +10,7 @@ import Featured from './components/beers/Featured';
 import Login from './components/users/Login';
 import Logout from './components/users/Logout';
 import NotFound from './components/NotFound';
-import Signup from './components/Signup';
+import Signup from './components/users/Signup';
 
 import { fetchBeers } from './redux/actions/beers'
 
@@ -35,8 +35,10 @@ class App extends Component {
             <NavLink className="navlink" to="/">Featured</NavLink>
             <NavLink className="navlink" to="/beers">All Brews</NavLink>
             {!this.props.isAuthenticated &&
-              <NavLink className="navlink" to="/login">Log In</NavLink>
-              <NavLink className="navlink" to="/signup">Sign Up</NavLink>
+              <span>
+                <NavLink className="navlink" to="/login">Log In</NavLink>
+                <NavLink className="navlink" to="/signup">Sign Up</NavLink>
+              </span>
             };
             {this.props.isAuthenticated &&
               <span>

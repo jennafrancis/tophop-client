@@ -40,7 +40,7 @@ export default function login(creds, router) {
       'Content-Type': 'application/json'
     }
   }
-
+  
   return dispatch => {
     dispatch(authenticationRequest(creds))
     return fetch(`${API_URL}/auth`, config)

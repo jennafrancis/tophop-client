@@ -47,9 +47,9 @@ export default function signup(creds, router) {
     .then(response => response.json())
     .then(body => {
       if (body.user.id) {
-        localStorage.setItem('tophop.token', body.token;
+        localStorage.setItem('tophop.token', body.token);
         dispatch(setCurrentUser(body.user));
-        router.history.replace(`/`)
+        router.replace(`/`)
         // const.slug = body.user.email.split("@")[0] <-- for future implementation
         // router.history.replace(`/users/${slug}`)
       } else {
