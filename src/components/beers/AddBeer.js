@@ -126,12 +126,14 @@ class AddBeer extends Component {
             />
         </div>
 
-        <div>
-          <label htmlFor="featured">Featured? </label>
-          <input type="radio" name="featured" value="true" onClick={this.handleRadio} /> Yes
-          <input type="radio" name="featured" value="false" onClick={this.handleRadio} /> No
-        </div>
-
+        {this.props.admin &&
+          <div>
+            <label htmlFor="featured">Featured? </label>
+            <input type="radio" name="featured" value="true" onClick={this.handleRadio} /> Yes
+            <input type="radio" name="featured" value="false" onClick={this.handleRadio} /> No
+          </div>
+        }
+        
         <button>Add Beer</button>
         </form>
       </div>
@@ -139,4 +141,10 @@ class AddBeer extends Component {
   }
 }
 
-export default connect(null, { createBeer })(AddBeer);
+const mapStateToProps = (state) => {
+  return {
+    admin: state.auth.currentUser.admin
+  }
+}
+
+export default connect(mapStateToProps, { createBeer })(AddBeer);

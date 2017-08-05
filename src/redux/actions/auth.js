@@ -16,7 +16,7 @@ function setCurrentUser(user) {
     type: 'AUTHENTICATION_SUCCESS',
     isAuthenticating: false,
     isAuthenticated: true,
-    id: user.id
+    currentUser: user
   }
 }
 

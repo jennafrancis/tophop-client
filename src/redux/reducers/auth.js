@@ -16,18 +16,21 @@ export default (state = initialState, action) => {
       return {
         isAuthenticated: true,
         isAuthenticating: false,
-        currentUser: action.user
+        currentUser: action.currentUser
       }
     case 'AUTHENTICATION_FAILURE':
       return Object.assign({}, state, {
         isAuthenticating: false,
         isAuthenticated: false,
+        currentUser: {},
         errorMessage: action.message
       })
     case 'LOGOUT_SUCCESS':
       return Object.assign({}, state, {
         isAuthenticating: true,
-        isAuthenticated: false
+        isAuthenticated: false,
+        currentUser: {},
+        errorMessage: ''
       })
     default:
       return state;
