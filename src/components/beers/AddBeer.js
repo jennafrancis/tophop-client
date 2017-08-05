@@ -13,7 +13,8 @@ class AddBeer extends Component {
       abv: '',
       description: '',
       image_url: '',
-      style: ''
+      style: '',
+      featured: false
     }
   }
 
@@ -24,9 +25,17 @@ class AddBeer extends Component {
     })
   }
 
+  handleRadio = event => {
+    const isFeatured = event.currentTarget.value === "true" ? true: false;
+    this.setState({
+      featured: isFeatured
+    })
+  }
+
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.createBeer(this.state, this.props.history);
+    console.log(this.state)
     this.setState({
       name: '',
       brewery: '',
@@ -34,7 +43,8 @@ class AddBeer extends Component {
       abv: '',
       description: '',
       image_url: '',
-      style: ''
+      style: '',
+      featured: false
     })
   }
 
@@ -114,6 +124,12 @@ class AddBeer extends Component {
             value={this.state.style}
             onChange={this.handleOnChange}
             />
+        </div>
+
+        <div>
+          <label htmlFor="featured">Featured? </label>
+          <input type="radio" name="featured" value="true" onClick={this.handleRadio} /> Yes
+          <input type="radio" name="featured" value="false" onClick={this.handleRadio} /> No
         </div>
 
         <button>Add Beer</button>
