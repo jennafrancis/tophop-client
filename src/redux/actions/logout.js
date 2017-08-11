@@ -9,6 +9,7 @@ function receiveLogout() {
 export default function logoutUser() {
   return dispatch => {
     localStorage.removeItem('tophop.token')
+    localStorage.removeItem('tophop.admin')
     dispatch(receiveLogout())
   }
 }

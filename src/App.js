@@ -50,6 +50,12 @@ class App extends Component {
             <h1 className="tophop">TopHop</h1>
             <p className="catch-line">Life's better when you're hoppy.</p>
           </div>
+          
+          {!this.props.isAuthenticated &&
+            <div className="login">
+              <p>Login or sign up to share your favorite beers with us. Cheers!</p>
+            </div>
+          }
 
           <Switch>
             <Route exact path="/" component={Featured} />

@@ -14,7 +14,7 @@ class Beer extends Component {
         <p><img className="show-img" src={this.props.beer.image_url} alt={this.props.beer.name} /></p>
         <h3>{this.props.beer.style}</h3>
         <h4>ABV: {this.props.beer.abv}% | IBU: {this.props.beer.ibu}</h4>
-        <p className="description">{this.props.beer.description}</p>
+        <p className="description">"{this.props.beer.description}" - {this.props.beer.brewery}</p>
         {this.props.isAdmin &&
           <button onClick={this.handleOnDelete}>Delete Beer</button>
         }
