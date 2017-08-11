@@ -1,5 +1,4 @@
 import 'isomorphic-fetch';
-import { reset, SubmissionError } from 'redux-form'
 const API_URL = process.env.REACT_APP_API_URL;
 
 function authenticationRequest(creds) {
